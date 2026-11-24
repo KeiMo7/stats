@@ -46,4 +46,10 @@ var (
 	// ErrTooFew Input has too few elements for the statistic. It matches
 	// ErrEmptyInput with errors.Is.
 	ErrTooFew = tooFewError{statsError{"Input has too few elements."}}
+	// ErrAxisMismatch Two accumulators were built on different score axes
+	// and so their states cannot be merged.
+	ErrAxisMismatch = statsError{"Score axis configurations do not match."}
+	// ErrUndefined Statistic is not defined for the observed data, for
+	// example AUC when one of the two classes carries no positive weight.
+	ErrUndefined = statsError{"Statistic is undefined for the given input."}
 )
